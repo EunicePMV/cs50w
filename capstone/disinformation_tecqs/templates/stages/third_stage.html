@@ -1,0 +1,198 @@
+{% extends './stages_layout.html' %}
+
+{% load static %}
+
+{% block title %}
+    Third Stage
+{% endblock %}
+
+{% block body %}
+    <div class="hide slideDown-container back-to-chat-container" id="third-stage-first-post">
+        <div id="first-post-choice" class="carousel slide" data-bs-interval="false" data-bs-touch="false">
+            <div class="carousel-inner">
+                <div class="option-post-container carousel-item active">
+                    <div class="post-title">
+                        ABS-CBÑ News
+                    </div>
+                    <div class="post-content">
+                        ABC City Mayor Candidate Mr. Reyes is the mastermind 
+                        behind the troll farm caught in warehouse
+                    </div>
+                    <hr>
+                </div>
+                <div class="option-post-container carousel-item">
+                    <div class="post-title">
+                        GmA News
+                    </div>
+                    <div class="post-content">
+                        Court found Mayoral Candidate in ABC City guilty 
+                        for tax evasion
+                    </div>
+                    <hr>
+                </div>
+                <div class="option-post-container carousel-item">
+                    <div class="post-title">
+                        TV6
+                    </div>
+                    <div class="post-content">
+                        Mr. Reyes 86 billion funds for the Mayoral Candidacy 
+                        in ABC City is from his embezzlement  
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <button class="carousel-control-prev control-carousel" type="button" data-bs-target="#first-post-choice" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next control-carousel" type="button" data-bs-target="#first-post-choice" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block chat %}
+    <div>
+        <div class="stages-convo sliding-command-convo">
+            So far so good, great job! Elections are coming near
+        </div>
+        <div class="option-chat-reply-container">
+            <span class="continue-container-proceed">
+                Click here to continue
+                <i class="arrow right"></i>
+            </span>
+        </div>
+    </div>
+    <div class="hide">
+        <div class="stages-convo sliding-command-convo">
+            National polls are on our side, anything that we 
+            could convince more voters?
+        </div>
+        <div class="option-chat-reply-container">
+            <div class="sliding-command-convo option-reply-chat">
+                How about attacking again Mr. Reyes?
+            </div>
+            <div class="sliding-command-convo option-reply-chat">
+                Now that Mr. Reyes is in bad light we could intensify 
+                the attack he's currently facing 
+            </div>
+        </div>
+    </div>
+    <div class="hide">
+        <div class="stages-convo sliding-command-convo">
+            I think that's a good idea, tell me what you have in your mind
+        </div>
+        <div class="option-chat-reply-container">
+            <div class="sliding-command-convo option-reply-chat">
+                We will conduct a digital black ops
+            </div>
+        </div>
+    </div>
+    <div class="hide">
+        <div class="stages-convo sliding-command-convo">
+            That's great! We could further bring down Mr. 
+            Reyes political brand by spreading rumors or 
+            any accusations against him
+        </div>
+        <div class="option-chat-reply-container">
+            <div class="sliding-command-convo option-reply-chat">
+                Yes Sir, and people will blindly believe us due 
+                to the current reputation he has now
+            </div>
+            <div class="sliding-command-convo option-reply-chat">
+                Correct Sir! And no one would even suspect us 
+            </div>
+        </div>
+    </div>
+    <div class="hide back-to-post-container">
+        <div class="stages-convo sliding-command-convo">
+            Well then, I leave it up to you
+        </div>
+        <div class="option-chat-reply-container">
+            <span class="continue-container-proceed">
+                Click here to continue
+                <i class="arrow right"></i>
+            </span>
+        </div>
+    </div>
+    <div class="hide" id="client-response-news-chat">
+        <div class="stages-convo sliding-command-convo">
+            Did you see the news about Mr. Reyes?
+        </div>
+        <div class="option-chat-reply-container">
+            <div class="sliding-command-convo option-reply-chat">
+                Yes Sir! We are responsible of that
+            </div>
+        </div>
+    </div>
+    <div class="hide">
+        <div class="stages-convo sliding-command-convo">
+            Wait? How is that? It's from the news page
+        </div>
+        <div class="option-chat-reply-container">
+            <div class="sliding-command-convo option-reply-chat">
+                We imitate a legitimate page, as you can see we change 
+                a character from the name of a legitimate news page, and 
+                proceed to share a post
+            </div>
+        </div>
+    </div>
+    <div class="hide">
+        <div class="stages-convo sliding-command-convo">
+            Woah! So that people wouldn't tell if it's a fake 
+            news, and we could easily make people believe
+        </div>
+        <div class="option-chat-reply-container">
+            <span class="continue-container-proceed">
+                Click here to continue
+                <i class="arrow right"></i>
+            </span>
+        </div>
+    </div>
+    <div class="hide">
+        <div class="stages-convo sliding-command-convo">
+            Good job! It's really nice working with you till the end 
+            of the election
+        </div>
+        <div class="option-chat-reply-container">
+            <span class="continue-container-proceed">
+                Click here to continue
+                <i class="arrow right"></i>
+            </span>
+        </div>
+    </div>
+    <div class="hide">
+        <div class="stages-convo sliding-command-convo">
+            I hope our hardships would bare us a fruit, thank you
+        </div>
+        <div class="option-chat-reply-container">
+            <div class="sliding-command-convo option-reply-chat">
+                You're welcome Sir, I hope you have a great day ahead
+            </div>
+        </div>
+    </div>
+    <button id="end-button" class="nxt-button hide">
+        <span class="nxt-button-context">Next</span>
+    </button>
+    <div class="notification hide" id="impersonate-notif">
+        Impersonate a legit page then create post that would increase rumors about Mr. Reyes
+    </div>
+    <div id="final-msg-container" class="sliding-effect">
+        <div id="final-msg-main-context">
+            You reach the end of the game! I hope you learn a lot in your journey with me; there are a lot of
+            disinformation techniques out there. So,  you have to be wise and don't play right on their trap; you
+            are equip with the knowledge of the common political disinformation techniques, may this guide you and inspire
+            you to battle fake news in our digital era.
+            <br />
+            <br />
+            See you next time!
+        </div>
+        <div id="close-button-final-msg-container">
+            <button id="close-button-main-final-msg-container">
+                Back to Main Menu
+            </button>
+        </div>
+    </div>
+{% endblock %}
+
+<!-- readme -->

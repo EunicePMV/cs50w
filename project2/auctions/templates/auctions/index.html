@@ -1,0 +1,54 @@
+{% extends "auctions/layout.html" %}
+
+{% load static %}
+
+{% block extrahead %}
+    <link href="{% static 'index/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+    {% if messages %}
+        {% for message in messages %}
+              <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    
+    <div class="listing-container">
+        <div>
+            <h2>Active Listings</h2>
+        </div>
+        {% for item in items_listing %}
+            {% if not item.inactive %}
+                <div class="row">
+                    <div class="col-3" id="div-img">
+                        <img src="{{ item.image_url }}" alt="{{ item.title }}" id="image-listing">
+                    </div>
+                    <div class="col-9">
+                        <a href="{% url 'listing' id=item.id %}">
+                            <h3>{{ item.title }}</h3>
+                        </a>
+                        <hr>
+                        <div class="col-6" id="price-bid">
+                            {% if item.bids.all %}
+                                <strong>Price: $</strong>{{ item.bids.all.last.bid }}
+                            {% else %}
+                                <strong>Price: $</strong>{{ item.starting_bid }}
+                            {% endif %}
+                        </div>
+                        <br>
+                        <div class="col-6">
+                            <span id="description-title">Description:</span>
+                            <br>
+                            <span id="item-description">{{ item.description }}</span>
+                        </div>
+                        <br>
+                        <div class="col-6">
+                            <span id="time-date">Created on {{ item.date_time }}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

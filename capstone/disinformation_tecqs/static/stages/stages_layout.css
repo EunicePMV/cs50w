@@ -1,0 +1,754 @@
+/* TO DELETE:
+    - post-react-container
+    - post-react-button
+    - like*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #efefef;
+}
+
+#stages-layout-container {
+    display: flex;
+    height: 930px;
+    width: 100%;
+}
+
+#user-collage-container {
+    width: 476.250px;
+}
+
+#each-stage-container {
+    width: 912.500px;
+    padding: 59px;
+    position: relative;
+}
+
+#chat-commands-container {
+    width: 476.250px;
+}
+
+.div-container {
+    height: 100%;
+}
+
+#user-container {
+    height: 11%;
+    width: 350px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+#user-internal-container {
+    background-color: #900c3e;
+    border: 3px solid #000000;
+    border-radius: 10px;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+#user-profile-container {
+    height: 100%;
+    width: 35%;
+    background-color: #ffffff;
+    border-bottom-left-radius: inherit;
+    border-top-left-radius: inherit;
+    display: flex;
+    justify-content: center;
+}
+
+#main-profile-img {
+    height: 100%;
+    width: 75%;
+}
+
+#username-container {
+    height: 100%;
+    width: 65%;
+    /* center vertically */
+    position: relative;
+    top: 25%;
+    /*  */
+    left: 10%;
+    font-family: Roboto;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+#collage-news-container {
+    height: 790px;
+    width: 350px;
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: 0;
+    border-radius: 10px;
+}
+
+.news-container {
+    padding-left: 25px;
+    margin-left: auto;
+    margin-right: 0;
+    margin-bottom: 20px;
+    padding-top: 47px;
+}
+
+.news-title {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.news-content {
+    width: 300px;
+    text-align: justify;
+    font-family: Noto Sans Mono;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    color: #797979;
+}
+
+#fake-news-bar-container {
+    padding-left: 25px;
+    position: relative;
+    top: 25px;
+}
+
+#fake-news-main-context {
+    font-family: Noto Sans Mono;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #000000;
+}
+
+#fake-news-gray-bar {
+    position: absolute;
+    width: 205px;
+    height: 0px;
+    border: 5px solid #EBE9E9;
+}
+
+#fake-news-red-bar {
+    position: absolute;
+    width: 64px;
+    height: 0px;
+    border: 5px solid #E5243F;
+}
+
+#red-gray-bar-container {
+    margin-top: 15px;
+}
+
+#chat-main-container {
+    height: 700px;
+    width: 450px;
+    border: 3px solid #000000;
+    border-bottom: 0;
+    position: fixed;
+    bottom: 0px;
+    margin-left: 50px;
+}
+
+#control-buttons-container {
+    border-bottom: 3px solid #000000;
+    background-color: #900c3e;
+    color: #ffffff;
+    height: 5%;
+    width: 100%;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 800;
+    padding-left: 5px;
+}
+
+#convo-commands-container {
+    height: 663px;
+    width: 100%;
+    background-color: #ffffff;
+    overflow: scroll;
+    padding-top: 5px;
+}
+
+#convo-commands-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* styling for the convo container */
+
+.stages-convo {
+    margin: 7px 5px;
+    padding: 5px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    display: inline-block; 
+    font-family: Noto Sans Mono;
+    font-size: 18px;
+    max-width: 400px;
+}
+
+.reply-convo {
+    margin: 0px 5px 20px 5px;
+    padding: 5px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    display: inline-block; 
+    font-family: Noto Sans Mono;
+    font-size: 18px;
+    background-color: #900c3e;
+    color: #ffffff;
+    float: right;
+    max-width: 400px;
+}
+
+.option-chat-reply-container {
+    margin-top: 70px;
+}
+
+.option-reply-chat {
+    background-color: #8ab4f8;
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    display: table; 
+    font-family: Noto Sans Mono;
+    font-size: 18px;
+    color: #000000;
+    float: right;
+    max-width: 400px;
+    cursor: pointer;
+}
+
+.option-reply-chat:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);
+}
+
+.hide {
+    opacity: 0;
+    display: none;
+}
+
+.show {
+    animation-name: revealConvo;
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+    scroll-behavior: smooth;
+}
+
+@keyframes revealConvo {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+/* sliding effect for each convo */
+.sliding-command-convo {
+    animation-name: slideUp;
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(150px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.nxt-button {
+    border-radius: 10px;
+    border: 3px solid #000000;
+    background-color: #F7B15C;
+    margin: 51px 5px;
+    float: right;
+    cursor: pointer;
+    transition: box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.nxt-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 2.5px 5px #000000;
+}
+
+.nxt-button-context {
+    font-family: Noto Sans Mono;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 21px;
+    color: #000000;
+    padding: 10px;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+.continue-container-proceed {
+    font-family: PT Mono;
+    font-size: 15px;
+    font-weight: 600;
+    color:  rgb(102, 102, 102);
+    padding: 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+/* styling the main wall post container */
+#stage-main-external-container {
+    width: 100%;
+    padding: 0 20px;
+}
+
+#stage-main-internal-container {
+    width: 100%;
+}
+
+/* design of the wall post for each stage */
+
+.option-post-container {
+    background-color: #ffffff;
+    max-width: 806.5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.option-post-container:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.3);
+}
+
+.post-container {
+    background-color: #ffffff;
+    width: 806.5px;
+    box-shadow: 10px 10px #000000;
+    margin-top: 30px;
+    padding: 10px;
+    animation-name: newPost;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+}
+
+.slideDown-container {
+    animation-name: newPost;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+}
+
+/* trigger this everytime there's new post */
+
+@keyframes newPost {
+    0% {
+        transform: translateY(-150px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+
+    /* if new post is added have transform to -50px */
+}
+
+.post-title {
+    font-family: Roboto;
+    font-weight: 800;
+    font-size: 35px;
+    border-bottom: 2px solid #efefef;
+}
+
+.post-content {
+    font-family: Noto Sans Mono;
+    font-weight: 500;
+}
+
+.continue-post-proceed {
+    cursor: pointer;
+}
+
+.post-this-text {
+    margin-top: 20px;
+    font-family: Noto Sans Mono;
+    font-size: 20px;
+    font-weight: 800;
+    float: right;
+    cursor: pointer;
+}
+
+.post-this-text:hover {
+    color: #900c3e;
+}
+
+.control-carousel {
+    border: 0px !important;
+    background-color: #000000 !important;
+}
+
+.carousel-inner {
+    padding: 0px 119px;
+    background-color: #ffffff;
+}
+
+.post-react-container {
+    margin: 20px 5px 0px 5px;
+    padding: 10px;
+    border-top: 2px solid #efefef;
+    display: flex;
+}
+
+.post-react-button {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 500;
+    width: 33.33%;
+    text-align: center;
+}
+
+.like {
+    animation-name: increaseLike;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes increaseLike {
+    0% {
+        color: #000000;
+    }
+
+    100% {
+        color: #900c3e;
+    }
+}
+
+.notification {
+    max-width: 500px;
+    border: 3px solid #000000;
+    border-radius: 10px;
+    padding: 5px;
+    font-family: Noto Sans Mono;
+    font-weight: 800;
+    color: #ffffff;
+    background-color: #000000;
+    position: fixed;
+    opacity: 0;
+    z-index: 1;
+    top: 70px;
+    left: 1324px;
+    animation-name: popup;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes popup {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.fadeOut {
+    animation-name: fadeOut;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    } 
+} 
+
+/* when notification is display
+after some time remove in display */
+
+/* to remove this after finalizing */
+
+#to-remove-button {
+    margin: 20px 0px;
+}
+
+#final-msg-container {
+    display: none;
+    border: 5px solid #000000;
+    border-radius: 20px;
+    color: #000000;
+    top: 305px;
+    left: 544px;
+    position: fixed;
+    width: 781px;
+    height: 349px;
+    z-index: 1;
+    background-color: #FFFFFF;
+    padding: 20px;
+}
+
+#final-msg-main-context {
+    font-family: Noto Sans Mono;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: justify;
+    line-height: 29px;
+    color: #000000;
+}
+
+#close-button-main-final-msg-container {
+    width: 191px;
+    height: 36px;
+    box-sizing: border-box;
+    background: #F7B15C;
+    border: 4px solid #000000;
+    border-radius: 24px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0;
+    margin-left: auto;
+    color: #000000;
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s, visibility .35s, height .35s;
+    overflow: hidden;
+    background: black;
+    z-index: -1;
+}
+
+#main-menu {
+    display: block;
+    height: 100px;
+    width: 100%;
+    background: #c70039;
+    margin: 0px;  
+}
+
+#main-menu ul {
+    max-width: 800px;
+    width: 100%;
+    height: 100%;
+    margin: 0px auto;
+    padding: 0px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#main-menu li {
+    list-style-type: none;
+    font-size: 2rem;
+}
+
+#main-menu a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+#main-menu a:hover {
+    text-decoration: underline;
+}
+
+#hamburger-input{
+    display: none;
+}
+
+#hamburger-menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    display: none;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Cabin', Sans-serif;
+    background: linear-gradient(
+        to bottom, 
+        #c70039, #c70039 20%, 
+        white 20%, white 40%, 
+        #c70039 40%, #c70039 60%, 
+        white 60%, white 80%, 
+        #c70039 80%, #c70039 100%
+    );
+}
+
+#hamburger-menu #sidebar-menu {
+    visibilty: hidden;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 200px;
+    height: 100%;
+    background-color: #c70039;
+    transition: 0.3s;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+#hamburger-menu h3 {
+    color: #ffffff;
+    font-size: 2.2rem;
+}
+
+#username-burger {
+    margin: 20px 0px;
+}
+
+#hamburger-menu ul {
+    padding-left: 0px;
+}
+
+#hamburger-menu li {
+    list-style-type: none;
+    line-height: 3rem;
+}
+
+#hamburger-menu a {
+    color: #ffffff;
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+
+#hamburger-menu a:hover {
+    text-decoration: underline;
+}
+
+#hamburger-input:checked + #hamburger-menu #sidebar-menu {
+    visibility: visible;
+    left: 0;
+}
+#hamburger-input:checked ~ .overlay{
+    visibility: visible;
+    opacity: 0.4;
+}
+
+#hamburger-input:checked + #hamburger-menu #sidebar-menu {
+    visibility: visible;
+    left: 0;
+}
+#hamburger-input:checked ~ .overlay{
+    visibility: visible;
+    opacity: 0.4;
+}
+
+/* trial for the collapsible text */
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    color: #ffffff;
+    text-align: justify;
+}
+
+.news-title-burger {
+    font-family: Roboto;
+    margin-bottom: 10px;
+}
+
+.news-content-burger {
+    font-family: Noto Sans Mono;
+    font-size: 12px;
+}
+
+
+/* need to divide each section
+    - have navigation bar / burger symbol to store the username and the news container
+    - if burger symbol, then move to the left the post container and the chat command container */
+
+/*  2. move the post and chat command container to the top */
+
+@media screen and (max-width: 1000px) {
+
+    #main-menu {
+        display: none;
+    }
+
+    #hamburger-menu {
+        display: inline;
+    }
+
+    #user-collage-container {
+        display: none;
+    }
+
+    #each-stage-container {
+        padding: 50px;
+        z-index: -1;
+    }
+
+    #chat-main-conatiner {
+        height: 410px;
+    }
+}

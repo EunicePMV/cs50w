@@ -1,0 +1,28 @@
+{% extends "auctions/layout.html" %}
+
+{% load static %}
+
+
+{% block extrahead %}
+	<link href="{% static 'create_listing/create_listing.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+	Create Listing
+{% endblock %}
+
+{% block body %}
+	<div id="form-container">
+		<form action="" method="POST">
+			{% csrf_token %}
+			
+			<div class="container">
+				<h3>Create Listing</h3>
+				
+				{{ form.as_p }}
+			
+				<input type="submit" value="Save" class="btn btn-primary">
+			</div>
+		</form>
+	</div>
+{% endblock %}

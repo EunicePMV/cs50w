@@ -1,0 +1,122 @@
+{% extends '../layout.html' %}
+
+{% load static %}
+
+{% block script %}
+    <link href="{% static 'index/style.css' %}" rel="stylesheet">
+    <script src="{% static 'index/index.js' %}"></script>
+{% endblock %}
+ 
+{% block body %}
+    {% if msg %}
+        <div class="alert alert-danger alert-dismissible fade show">{{ msg }}</div>
+    {% endif %}
+    <div id="disinformation-main-context">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <!-- place here the title and description for this slide -->
+                <div class="slide-context">
+                    <div class="slide-inner-context">
+                        <div class="slide-title-container">
+                            <span class="slide-title">Disinformation</span><br>
+                        </div>
+                        <div class="slide-description-container">
+                            <span class="slide-description">A manipulated information that aims to mislead people to promote the creator's ideology or advance their ulterior motive</span>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="slide-context">
+                    <div class="slide-inner-context">
+                        <div class="slide-title-container">
+                            <span class="slide-title">Philippines</span><br>
+                        </div>
+                        <div class="slide-description-container">
+                            <span class="slide-description">Philippines a democratic country is infiltrated by the widespread of disinformation, most especially in the 2019 and 2022 election (Labiste, 2022)</span>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="slide-context">
+                    <div class="slide-inner-context">
+                        <div class="slide-title-container">
+                            <span class="slide-title">Filipinos</span><br>
+                        </div>
+                        <div class="slide-description-container">
+                            <span class="slide-description">Filipinos are susceptible to disinformation most especially if most of Filipino communities are in social media such as Facebook, Twitter and Tiktok; where infodemic happens</span>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div id="lower-body-container">
+        <div id="start-container">
+            <button id="start-button">
+                <span id="start-context">Start</span>
+            </button>
+        </div>
+        <div id="lower-container">
+            <div id="creator-text" class="hover-effect">
+                Creator
+            </div>
+            <div id="about-text" class="hover-effect">
+                About
+            </div>
+        </div>
+    </div>
+    <div id="username-container">
+        <!-- popup form -->
+        <form id="username-form-container" action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            <span id="username-label">Enter your nickname</span><br>
+            <input type="text" id="username-input" name="username" autofocus/>
+            <div id="form-button-container">
+                <button class="form-button" id="form-back-button">
+                    Back
+                </button>
+                <button class="form-button" id="form-done-button">
+                    Done
+                </button>
+            </div>
+        </form>
+    </div>
+    <!-- About details container -->
+    <div id="about-page-container" class="other-context-container sliding-effect">
+        <div class="other-text-title">
+            About
+        </div>
+        <div class="other-text-main-context">
+            The game is a choose your own adventure type of game which will tackles about
+            political disinformation present in the Philippines. The web application is based
+            on research entitled "Architects of Networked Disinformation: Behind
+            the Scenes of Troll Accounts and Fake News Production in the Philippines".
+            <br />
+            <br />
+            The web project aims to raise awareness and produce media literate users
+            to prevent the spread of political disinformation; and for them to not become a future
+            victim. The game has a total of three stages, each has a political disinformation
+            technique that will be applied, for them to know how this technique
+            posed a threat in the community.
+        </div>
+    </div>
+    <!-- Creator details container -->
+    <div id="creator-page-container" class="other-context-container sliding-effect">
+        <div class="other-text-title">
+            Creator
+        </div>
+        <div class="other-text-main-context">
+            I am Eunice Patricia M. Villanueva; a 3rd year iskolar in the Polytechnic University 
+            of the Philippines; Sta. Mesa, Manila. I aim to educate my peers and other people
+            belonging to the same community as I am about disinformation, most especially
+            in politics; to produce wise voters for the next election and prevent the hindrance
+            to elect the right leaders of the country towards the great future of the Philippines.
+        </div>
+    </div>
+    <div id="background-blocker">
+    </div>
+{% endblock %}

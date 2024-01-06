@@ -1,0 +1,60 @@
+{% extends "auctions/layout.html" %}
+
+{% load static %}
+
+{% block extrahead %}
+	<link href="{% static 'index/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Categories{% endblock %}
+
+{% block body %}
+	<div class="categories-container">
+		<div>
+			<form action="{% url 'categories' %}" method="POST">
+				{% csrf_token %}
+				
+				{% for category in categories %}
+					<input type="checkbox" name="category" value="{{ category.0 }}">
+					<label for="category">{{ category.1 }}</label>
+					<br>
+				{% endfor %}
+					<button class="btn btn-primary">Display Active Listing</button>
+			</form>
+		</div>
+		<div>
+			{% for item in items %}
+				{% if not item.inactive %}
+					<div class="row">
+	                    <div class="col-3" id="div-img">
+	                        <img src="{{ item.image_url }}" alt="{{ item.title }}" id="image-listing">
+	                    </div>
+	                    <div class="col-9">
+	                        <a href="{% url 'listing' id=item.id %}">
+	                            <h3>{{ item.title }}</h3>
+	                        </a>
+	                        <hr>
+	                        <div class="col-6" id="price-bid">
+	                            {% if item.bids.all %}
+	                                <strong>Price: $</strong>{{ item.bids.all.last.bid }}
+	                            {% else %}
+	                                <strong>Price: $</strong>{{ item.starting_bid }}
+	                            {% endif %}
+	                        </div>
+	                        <br>
+	                        <div class="col-6">
+	                            <span id="description-title">Description:</span>
+	                            <br>
+	                            <span id="item-description">{{ item.description }}</span>
+	                        </div>
+	                        <br>
+	                        <div class="col-6">
+	                            <span id="time-date">Created on {{ item.date_time }}</span>
+	                        </div>
+	                    </div>
+	                </div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}

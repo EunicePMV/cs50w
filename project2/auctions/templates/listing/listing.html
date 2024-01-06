@@ -1,0 +1,130 @@
+{% extends "auctions/layout.html" %}
+
+{% load static %}
+
+{% block extrahead %}
+	<link href="{% static 'listing/listing.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Listing{% endblock %}
+
+{% block body %}
+	<div class="listing-container">
+		<div class="row justify-content-between">
+			<div class="col-4">
+			</div>
+			{% if not item.inactive %}
+				{% if user == item.bid_creator %}
+					<div class="col-4">
+						<form action="{% url 'close' %}" method="POST">
+							{% csrf_token %}
+							<button name="close" value="{{ item.id }}" id="close-button" class="btn btn-danger">Close</button>
+						</form>
+					</div>
+				{% endif %}
+			{% endif %}
+		</div>
+		{% if user.is_authenticated %}
+			{% if user not in item.watchlist_user.all %}
+				<div id="watchlist">
+					<form action="{% url 'addItem' id=item.id %}" method="POST">
+						{% csrf_token %}
+						<button name="watchlist" value="{{ user.id }}" class="btn btn-primary">Watchlist</button>
+					</form>
+				</div>
+			{% else %}
+				<div id="watchlist">
+					<span class="badge bg-secondary">Watchlisted</span>
+				</div>
+			{% endif %}
+		{% endif %}
+		<div class="listing-details">
+			<div id="image-container">
+				<img src="{{ item.image_url }}" id="item-image">
+			</div>
+			<div id="details-container">
+				<div id="details-information">
+					<div>
+						<h2>{{ item.title }}</h2>
+						<hr>
+					</div>
+					<div>
+						{% if bid %}
+							<strong id="price">${{ bid }}</strong>
+						{% else %}
+							<strong id="price">${{ item.starting_bid }}</strong>		
+						{% endif %}	
+					</div>
+					<div id="listing-creator">
+						Created by: {{ item.bid_creator }}
+					</div>
+					<div>
+						{% if messages %}
+							{% for message in messages %}
+								<div>
+									{{ message }}
+								</div>
+							{% endfor %}
+						{% endif %}
+						{% if not item.inactive %}
+							<form action="{% url 'placeBid' id=item.id %}" method="POST">
+								{% csrf_token %}
+								<input type="number" name="bid" placeholder="Bid" class="form-control">
+								<button name="user" value="{{ user.id }}" class="btn btn-primary">Place Bid</button>
+							</form>
+						{% else %}
+							{% if item.winner == user %}
+								<div>
+									{{ item.winner }} won the item!
+								</div>
+							{% else %}
+								<div>
+									This Listing is closed.
+								</div>
+							{% endif %}
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="other-details">
+			<div id="description">
+				<div id="description-title">Description</div>
+				<div id="description-info">
+					{{ item.description }}
+				</div>
+			</div>
+			<div id="category">
+				<div id="category-title">Category</div>
+				{% if item.category %}
+					<div id="category-info">{{ item.category }}</div>
+				{% else %}
+					<div id="category-info">No specified category</div>
+				{% endif %}
+			</div>
+		</div>
+		<div id="comment-section">
+			<div>
+				<h4>Comment Section</h4>
+			</div>
+			<div>
+				{% for comment in item.commented_item.all %}
+					<div class="comment-info">
+						<b class="commenter">{{ comment.commenter.username }}: </b>
+						<br>
+						<div id="comment-msg">
+							{{ comment.comment }}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			<div>
+				<form action="{% url 'comment' id=item.id %}" method="POST">
+					{% csrf_token %}
+					<input type="text" name="comment" placeholder="comment" class="form-control">
+					<button name="user" value="{{ user.id }}" class="btn btn-primary">Send</button>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

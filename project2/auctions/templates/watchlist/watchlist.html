@@ -1,0 +1,58 @@
+{% extends "auctions/layout.html" %}
+
+{% load static %}
+
+{% block title %}Watchlist{% endblock %}
+
+{% block extrahead %}
+	<link href="{% static 'index/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+	<div class="listing-container">
+		<div>
+            <h2>Watchlist</h2>
+        </div>
+		{% for item in items %}
+			<div class="row">
+				<div class="col-3" id="div-img">
+					<img src="{{ item.image_url }}" alt="{{ item.title }}" id="image-listing">
+				</div>
+				<div class="col-9">
+					<div class="row justify-content-between">
+						<div class="col-4">
+							<a href="{% url 'listing' id=item.id %}">
+								<h3>{{ item.title }}</h3>
+							</a>
+						</div>
+						<div class="col-4">
+							<form action="{% url 'removeItem' id=item.id %}" method="POST">
+								{% csrf_token %}
+								<button name="removeItem" value="{{ user.id }}" id="close-button" class="btn btn-primary">Remove to Watchlist</button>
+							</form>
+						</div>
+					</div>
+					<hr>
+					<div class="col-6" id="price-bid">
+						{% if item.bids.all %}
+	                        <strong>Price: </strong>{{ item.bids.all.last.bid }}
+	                    {% else %}
+	                        <strong>Price: </strong>{{ item.starting_bid }}
+	                    {% endif %}
+					</div>
+					<br>
+                    <div class="col-6">
+                        <span id="description-title">Description:</span>
+                        <br>
+                        <span id="item-description">{{ item.description }}</span>
+                    </div>
+                    <br>
+                    <div class="col-6">
+                        <span id="time-date">Created on {{ item.date_time }}</span>
+                    </div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

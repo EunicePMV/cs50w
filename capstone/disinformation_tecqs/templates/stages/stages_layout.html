@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+    crossorigin="anonymous"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Lato:wght@300&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link href="{% static 'stages/stages_layout.css' %}" rel="stylesheet" />
+    
+    <title>{% block title %} {% endblock %}</title>
+
+    <script src="{% static 'stages/stage/stage.js' %}"></script>
+</head>
+<body>
+    <!-- the hamburger menu -->
+    <input type="checkbox" id="hamburger-input" class="burger-shower" />
+
+    <label id="hamburger-menu" for="hamburger-input">
+        <nav id="sidebar-menu">
+            <h3 id="username-burger">{{ username }}</h3>
+            <ul>
+                <li class="collapsible"><a href="#">News One</a></li>
+                <div class="content">
+                    <div class="news-title-burger">
+                        Miss A's talent was paid to endorse mayor candidate?!?
+                    </div>
+                    <div class="news-content-burger">
+                        Manager A did not decline nor agreed, which sparks more 
+                        speculation to the public. Instead a brand new car is now 
+                        present in their garage.
+                    </div>
+                </div>
+                <li class="collapsible"><a href="#">News Two</a></li>
+                <div class="content">
+                    <div class="news-title-burger">
+                        Vice mayor in ABC City was seen doing vote buying
+                    </div>
+                    <div class="news-content-burger">
+                        ABC CITY - Vice mayor is being condone for alleged vote 
+                        buying in the DEF barangay, authorities have not yet release
+                        their statements.
+                    </div>
+                </div>
+                <li class="collapsible"><a href="#">News Three</a></li>
+                <div class="content">
+                    <div class="news-title-burger">
+                        Political disinformation have been igniting public distrust
+                    </div>
+                    <div class="news-content-burger">
+                        Social medias are now being use as a tool for candidates' political 
+                        strategy, for winning in the election despite of dirty tactics.
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </label>
+
+    <!-- the color background of the menu -->
+    <div class="overlay"></div>
+
+    <div id="stages-layout-container">
+        <div id="user-collage-container" class="div-container">
+            <div id="user-container">
+                <div id="user-internal-container">
+                    <div id="user-profile-container">
+                        <img src="https://cdn2.iconfinder.com/data/icons/mobile-banking-ver-1a/100/1-04-512.png" id="main-profile-img">
+                    </div>
+                    <div id="username-container">
+                        {{ username }}
+                    </div>
+                </div>
+            </div>
+            <div id="collage-news-container">
+                <div class="news-container">
+                    <div class="news-title">
+                        Miss A's talent was paid to endorse mayor candidate?!?
+                    </div>
+                    <div class="news-content">
+                        Manager A did not decline nor agreed, which sparks more 
+                        speculation to the public. Instead a brand new car is now 
+                        present in their garage.
+                    </div>
+                </div>
+                <div class="news-container">
+                    <div class="news-title">
+                        Vice mayor in ABC City was seen doing vote buying
+                    </div>
+                    <div class="news-content">
+                        ABC CITY - Vice mayor is being condone for alleged vote 
+                        buying in the DEF barangay, authorities have not yet release
+                        their statements.
+                    </div>
+                </div>
+                <div class="news-container">
+                    <div class="news-title">
+                        Political disinformation have been igniting public distrust
+                    </div>
+                    <div class="news-content">
+                        Social medias are now being use as a tool for candidates' political 
+                        strategy, for winning in the election despite of dirty tactics.
+                    </div>
+                </div>
+                <div id="fake-news-bar-container">
+                    <div id="fake-news-main-context">
+                        Fake News Alert!
+                    </div>
+                    <div id="red-gray-bar-container">
+                        <div id="fake-news-gray-bar"></div>
+                        <div id="fake-news-red-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="each-stage-container" class="div-container">
+            <div class="stage-main-external-container">
+                <div class="stage-main-internal-container" id="main-internal-stage-container">
+                    {% block body %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        <div id="chat-commands-container" class="div-container">
+            <div id="chat-main-container">
+                <div id="control-buttons-container">
+                    Juan Dela Cruz
+                </div>
+                <div id="convo-commands-container">
+                    {% block chat %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

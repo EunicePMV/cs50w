@@ -1,0 +1,156 @@
+{% extends "network/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+<!-- Container for all posts and the text editor posts -->
+<div id="all-post-view">
+  <div id="post-view">
+    {% if user.is_authenticated %}
+      <h4>New Post</h4>
+      <form id="post-form" method="POST">
+        {% csrf_token %}
+        <textarea id="post-area" class="form-control"></textarea>
+        <br />
+        <button id="post-button" class="btn btn-primary">Post</button>
+      </form>
+    {% endif %}
+  </div>
+  <div id="created-post">
+    {% for post in all_post %}
+      <div class="post-information" id="{{ post.id }}">
+        <div class="upper-content">
+          <h5 class="main-username">{{ post.user }}</h5>
+          <a href="#" class="main-edit" id="{{ post.id }}">Edit</a>
+        </div>
+        <div class="lower-content">
+          <div class="main-post post-id-{{ post.id }}">
+            {{ post.post }}
+          </div>
+          <div class="post-date">
+            {{ post.date }}
+          </div>
+          <div class="like-container" id="{{ post.id }}">
+            <img class="like-main-img" src="https://www.iconpacks.net/icons/1/free-heart-icon-431-thumb.png" alt="">
+            <span class="like-counter" id="heart-container-{{ post.id }}">
+              {{ post.likers.count }}
+            </span>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        {% if all_post.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ all_post.previous_page_number }}">Previous</a>
+          </li>
+        {% endif %}
+        {% if all_post.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ all_post.next_page_number }}">Next</a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div id="profile-post-view">
+  <div id="empty-container">
+  </div>
+  <div id="profile-info-container">
+    <div id="main-profile-container">
+      <span id="main-profile-username"></span>
+      <form id="following-form" method="POST">
+        {% csrf_token %}
+        <button id="follow-button" style="display: none">Follow</button>
+      </form>
+    </div>
+    <div id="follow-external-container">
+      <div class="follow-internal-container">
+        <span class="follow-num-container" id="username-following-num">
+        </span>
+        <span class="follow-word-container">
+          Following
+        </span>
+      </div>
+      <div class="follow-internal-container">
+        <span class="follow-num-container" id="username-followers-num">
+        </span>
+        <span class="follow-word-container">
+          Followers
+        </span>
+      </div>
+    </div>
+  </div>
+  <div id="username-all-post">
+  </div>
+  <div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+          <li class="page-item">
+            <a id="prev-button" class="page-link" href="#">Previous</a>
+          </li>
+          <li class="page-item">
+            <a id="nxt-button" class="page-link" href="#">Next</a>
+          </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div id="following-post-view">
+  {% if following_post %}
+    <div id="following-post">
+      {% for post in following_post %}
+        <div class="post-information" id="{{ post.id }}">
+          <div class="upper-content">
+            <h5 class="main-username">{{ post.user }}</h5>
+            <a href="#" class="main-edit" id="{{ post.id }}"></a>
+          </div>
+          <div class="lower-content">
+            <div class="main-post post-id-{{ post.id }}">
+              {{ post.post }}
+            </div>
+            <div class="post-date">
+              {{ post.date }}
+            </div>
+            <div class="like-container" id="{{ post.id }}">
+              <img class="like-main-img" src="https://www.iconpacks.net/icons/1/free-heart-icon-431-thumb.png" alt="">
+              <span class="like-counter" id="heart-container-{{ post.id }}">
+                {{ post.likers.count }}
+              </span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          {% if following_post.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ following_post.previous_page_number }}">Previous</a>
+            </li>
+          {% endif %}
+          {% if following_post.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ following_post.next_page_number }}">Next</a>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  {% else %}
+    No Following
+  {% endif %}
+</div>
+
+{% endblock %}
+
+<!-- {% block script %}
+<script src="{% static 'network/network.js' %}"></script>
+{% endblock %} -->

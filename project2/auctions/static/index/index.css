@@ -1,0 +1,66 @@
+h2, .listing-container, .categories-container{
+	margin: 20px 50px 20px 50px;
+}
+
+.row {
+    border: 3px solid #efefef;
+    background-color: white;
+    height: 258px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#div-img {
+	/* center vertically  */
+	display: flex;
+	justify-content: center;
+}
+
+#image-listing {
+	/* center horizontally */
+	display: block;
+	margin: auto;
+	width: 75%;
+	height: 50%;
+}
+
+/* watchlist property */
+.row.justify-content-between {
+	border: 0;
+	height: 50px;
+	margin: 0;
+}
+
+/* watchlist property */
+#close-button {
+	float: right;
+}
+
+.col-9 {
+    padding: 25px;
+}
+
+#price-bid {
+	font-family: arial, sans-serif;
+}
+
+#description-title {
+	color: #70757a;
+    font-family: arial,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+#item-description {
+	font-family: arial,sans-serif;
+	color: #4d5156;
+	font-size: 14px;
+}
+
+#time-date {
+	margin-top: 50px;
+	color: #70757a;
+    font-family: arial,sans-serif;
+    font-size: 12px;
+    font-weight: 200;
+}

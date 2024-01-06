@@ -1,0 +1,52 @@
+{% extends '../layout.html' %}
+
+{% load static %}
+
+{% block script %}
+    <link href="{% static 'pr_manager/pr_manager.css' %}" rel="stylesheet" />
+    <script src="{% static 'pr_manager/pr_manager.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+    <div id="conversation-outer-container">
+        <div id="conversation-container">
+            <div class="convo-context show" id="convo-1" value="{{ username }}">
+                Hi {{ username }}! Are you ready to know what's behind Disinformation?
+            </div>
+            <div class="convo-context hide" id="convo-2">
+                The advancement in technology paves way for infodemic, letting digital serves as a
+                tool to spread information, whether it's true or not. And in times of this, people
+                used this era to manipulate and fabricate news and other information to advance their
+                ulterior motives.
+            </div>
+            <!-- might have multiple bubbles here to explain the details for each role -->
+            <div class="convo-context hide" id="convo-3">
+                Architecture of networked disinformation, starting at the top level of the pyramid 
+                is the chief architects that will lead the promotion of a brand, followed by the 
+                anonymous digital influencers, including with the key opinion leaders; whose followers
+                are ranging between 50 000 to 2 000 000. And last but not the least, are the community-level
+                fake account operators; which given the a script according to the plan to promote a brand via
+                liking and sharing content in social media to encourage engagement.
+            </div>
+            <div class="convo-context hide" id="convo-4">
+                The Chief Architect has similar responsibility to a leader role whose main goal
+                is to strategize and promote brands.
+            </div>
+            <div class="convo-context hide" id="convo-5">
+                You will be playing as the Chief Architect that will play a key role in promoting 
+                and strategize the candidacy of a political nominee. Remember, to learn it is to do it,
+                for you to avoid the given disinformation technique, you must know how it was applied.
+            </div>
+            <div id="scroll-note">
+                Scroll down to proceed
+                <br/>
+                <img src="{% static 'pr_manager/images/arrow_down.png' %}" alt="Arrow Down" id="scroll-arrow">
+            </div>
+            <div id="nxt-button-container">
+                <button id="nxt-button">
+                    <a id="nxt-button-context" href="{% url 'stages' stage_name='first_stage' username=username %}">Next</a>
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

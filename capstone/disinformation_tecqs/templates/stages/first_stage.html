@@ -1,0 +1,218 @@
+{% extends './stages_layout.html' %}
+
+{% load static %}
+
+{% block title %}
+    First Stage
+{% endblock %}
+
+{% block body %}
+    <div class="hide slideDown-container back-to-chat-container" id="first-post">
+        <div id="first-post-choice" class="carousel slide" data-bs-interval="false" data-bs-touch="false">
+            <div class="carousel-inner">
+                <div class="option-post-container carousel-item active">
+                    <div class="post-title">
+                        Citizen Forum
+                    </div>
+                    <div class="post-content">
+                        Mr. Reyes only help those who has money, ewww >_<
+                        <br/>
+                        <br/>
+                        #NotForMinorities<br/>
+                        #ReyesNotMyMayor
+                    </div>
+                    <hr>
+                </div>
+                <div class="option-post-container carousel-item">
+                    <div class="post-title">
+                        Citizen Forum
+                    </div>
+                    <div class="post-content">
+                        Mr. Reyes don't even know how to address societal issue 
+                        <br/>
+                        <br/>
+                        #ReyesWitless<br/>
+                        #ReyesWithdraw
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <button class="carousel-control-prev control-carousel" type="button" data-bs-target="#first-post-choice" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next control-carousel" type="button" data-bs-target="#first-post-choice" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+    <div class="post-container hide" id="from-trending-chat">
+        <div class="post-title">
+            Anonymous Maria
+        </div>
+        <div class="post-content">
+            This is so true!
+        </div>
+        <hr>
+        <span class="continue-post-proceed">
+            Click here to continue
+            <i class="arrow right"></i>
+        </span>
+    </div>
+    <div class="post-container hide">
+        <div class="post-title">
+            IBARRA IG0P
+        </div>
+        <div class="post-content">
+            I knew it, he even discredit Mr. Dela Cruz!
+        </div>
+        <hr>
+        <span class="continue-post-proceed">
+            Click here to continue
+            <i class="arrow right"></i>
+        </span>
+    </div>
+    <div class="post-container hide back-to-chat-container">
+        <div class="post-title">
+            PADRE S1NaLvi
+        </div>
+        <div class="post-content">
+            Now I'm rethinking my decisions...
+        </div>
+        <hr>
+        <span class="continue-post-proceed">
+            Click here to continue
+            <i class="arrow right"></i>
+        </span>
+    </div>
+{% endblock %}
+
+{% block chat %}
+    <div>
+        <div class="stages-convo sliding-command-convo">
+            Good day! I think you've heard my name in news, social media,
+            and other posters. As you know, I'm running for mayor for ABC 
+            City, and I would like you to be my Chief Architect.
+        </div>
+        <div class="option-chat-reply-container">
+            <div class="sliding-command-convo option-reply-chat">
+                Would you mind if I'll get a brief background of you,
+                before we collaborate?
+            </div>
+            <div class="sliding-command-convo option-reply-chat">
+                Sure, it will be an honor to work with you Sir!
+            </div>
+        </div>
+    </div>
+    <div class="hide">
+        <div class="stages-convo">
+            You don't have to, I came from a well-known political family. 
+            And besides, your boss suggests you, let's just focus on the 
+            election, shall we?
+        </div>
+        <div class="option-chat-reply-container">
+            <div class="sliding-command-convo option-reply-chat">
+                Alright
+            </div>
+        </div>
+    </div>
+    <div class="hide">
+        <div class="stages-convo">
+            Good choice, now where and when do we start?
+        </div>
+        <div class="option-chat-reply-container">
+            <div class="sliding-command-convo option-reply-chat">
+                The goal here is for us to win, do you have anything significant 
+                hat you would like to mention?
+            </div>
+            <div class="sliding-command-convo option-reply-chat">
+                Then, I guess let's start winning! Any significant information 
+                you want to mention?
+            </div>
+        </div>
+    </div>
+    <div class="hide">
+        <div class="stages-convo">
+            There is, Mr. Reyes; another candidate keep on pulling down my 
+            reputation, is there anything that we could do about it?
+        </div>
+        <div class="option-chat-reply-container">
+            <span class="continue-container-proceed">
+                Click here to continue
+                <i class="arrow right"></i>
+            </span>
+        </div>
+    </div>
+    <div class="hide">
+        <div class="stages-convo">
+            Is there any way that we could fight that?
+        </div>
+        <div class="option-chat-reply-container">
+            <div class="sliding-command-convo option-reply-chat">
+                There is Sir! However, we will not fight face to face, 
+                instead our supporters will be the one who will fight for us
+            </div>
+            <div class="sliding-command-convo option-reply-chat">
+                We will make voters to turn their back on him.
+            </div>
+        </div>
+    </div>
+    <div class="hide display-post">
+        <div class="stages-convo">
+            Let's see how will you do that
+        </div>
+        <div class="option-chat-reply-container">
+            <div class="sliding-command-convo option-reply-chat">
+                Using our existing page that shared numerous inspirational 
+                post and other humorous content, we will promote hashtags 
+                and let people, especially our supporter and share it publicly.
+            </div>
+        </div>
+    </div>
+    <div class="hide back-to-post-container" id="trending-chat">
+        <div class="stages-convo">
+            Mr. Reyes is trending!
+        </div>
+        <div class="option-chat-reply-container">
+            <span class="continue-container-proceed">
+                Click here to continue
+                <i class="arrow right"></i>
+            </span>
+        </div>
+    </div>
+    <div class="hide" id="decision-right-chat">
+        <div class="stages-convo">
+            I knew my decision is right!
+        </div>
+        <div class="option-chat-reply-container">
+            <span class="continue-container-proceed">
+                Click here to continue
+                <i class="arrow right"></i>
+            </span>
+        </div>
+    </div>
+    <div class="hide">
+        <div class="stages-convo">
+            You spark anger from people through hashtags and to promote community discussion
+        </div>
+        <div class="option-chat-reply-container">
+            <span class="continue-container-proceed">
+                Click here to continue
+                <i class="arrow right"></i>
+            </span>
+        </div>
+    </div>
+    <div class="hide">
+        <div class="stages-convo">
+            And btw, good work. Anger hinder's the reasoning ability of a person, it's a good way to make people listen to us!
+        </div>
+        <div class="option-chat-reply-container">
+            <span class="continue-container-proceed">
+                Click here to continue
+                <i class="arrow right"></i>
+            </span>
+        </div>
+    </div>
+    <button id="secondStage-button" class="nxt-button hide">
+        <a class="nxt-button-context" href="{% url 'stages' stage_name='second_stage' username=username %}">Next Stage</a>
+    </button>
+{% endblock %}
